@@ -20,6 +20,10 @@ function Cards() {
 
   const idToken = localStorage.getItem("idToken");
 
+
+
+  //move this function to src/helpers.js
+  
   function checkExpire(expireTime) {
     const nowDate = Math.floor(Date.now() / 1000);
 
@@ -63,6 +67,8 @@ function Cards() {
     const storedFavorites = JSON.parse(localStorage.getItem("favorites")) || [];
     setFavorites(storedFavorites);
 
+      //this could be replaced with react query USEQUERY
+
     getPopularMovies()
       .then((data) => {
         setMovies(data.results);
@@ -72,6 +78,7 @@ function Cards() {
       });
   }, []);
 
+  //move this function to src/helpers.js
   const trimDescription = (text, maxLength) => {
     return text.length <= maxLength ? text : `${text.slice(0, maxLength)}...`;
   };
@@ -145,6 +152,8 @@ function Cards() {
                   )}
                 </Link>
               </Card.Body>
+
+              {/*Simpler logic: isTokenExpired() && <Card.Footer...   */}
               {isTokenExpired() ? (
                 ""
               ) : (
