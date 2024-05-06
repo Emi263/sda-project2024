@@ -3,6 +3,8 @@ import { jwtDecode } from "jwt-decode";
 const apiKey = import.meta.env.VITE_APP_API_KEY;
 const idToken = localStorage.getItem("idToken");
 
+//move this function to /api/movies.js
+
 export async function getPopularMovies() {
   const url = `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}`;
   const res = await axios.get(url);
@@ -10,10 +12,13 @@ export async function getPopularMovies() {
   return res.data;
 }
 
+
 export async function getAllUsers() {
   const res = await axios.get("https://jsonplaceholder.typicode.com/users");
   return res.data;
 }
+//move this function to /api/movies.js
+
 
 export async function getSinglePost(filmId) {
   const res = await axios.get(
@@ -23,6 +28,8 @@ export async function getSinglePost(filmId) {
   );
   return res.data;
 }
+
+//move these functions to /api/auth.js
 
 export async function signUp(data) {
   const res = await axios.post(
@@ -45,6 +52,11 @@ export async function logIn(data) {
   );
   return res.data;
 }
+
+
+
+//move these functions to /api/reservations.js
+
 
 export async function reservationData(data) {
   const decodedToken = jwtDecode(idToken);
