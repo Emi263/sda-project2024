@@ -8,6 +8,8 @@ import { ThemeContext } from "../../App";
 import "../Home/Header.css";
 import { jwtDecode } from "jwt-decode";
 
+//SAME CHANGES SUGGESTED BEFORE
+
 function HeaderSinglePost() {
   const [movies, setMovies] = useState([]);
   const [filteredMovies, setFilteredMovies] = useState([]);
