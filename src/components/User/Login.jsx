@@ -37,6 +37,8 @@ function Login() {
     mutation.mutate(data);
   };
 
+
+  //this logic to be moved to src/helpers.js (reused) 
   const idToken = localStorage.getItem("idToken");
 
   function checkExpire(expireTime) {
