@@ -11,10 +11,16 @@ import Unauthorized from "./screens/Unauthorized";
 
 
 export const client = new QueryClient();
+
+//since you are using theme and favorites for the context, you can change the name and be more general:
+//ex: export const GlobalContext = createContext();
+
 export const ThemeContext = createContext();
 
 function App() {
 
+
+  //you can move this to a separate file, src/routes.js and import it from there.
   const router = createBrowserRouter([
     {
       path: "/",
