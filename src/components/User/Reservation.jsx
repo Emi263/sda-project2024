@@ -1,3 +1,9 @@
+//You don't need to have two separate components for users/admins regarding reservations. 
+//You can reuse the same component, but with different data and functionalities (that can be passed as props)
+//if the user is admin, pass all the data, otherwise only the user data
+
+
+
 import { useContext, useEffect, useState } from "react";
 import {
   getSingleReservationUser,
@@ -17,6 +23,8 @@ import {
 import { useForm } from "react-hook-form";
 import { jwtDecode } from "jwt-decode";
 import { ThemeContext } from "../../App";
+
+
 
 function Reservation() {
   const [reservation, setReservation] = useState(null);
