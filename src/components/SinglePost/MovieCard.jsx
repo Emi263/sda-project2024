@@ -17,6 +17,10 @@ function MovieCard({ postId }) {
       ? { backgroundColor: "#333", color: "#fff" }
       : { backgroundColor: "#f8f9fa", color: "#000" };
 
+
+
+  //Better to use USEQUERY, where is error & loading state? 
+//React query provides you with those states
   useEffect(() => {
     getSinglePost(postId)
       .then((data) => {
@@ -27,6 +31,7 @@ function MovieCard({ postId }) {
       });
   }, [postId]);
 
+  
   return (
     <div style={cardStyle}>
       {movie && (
