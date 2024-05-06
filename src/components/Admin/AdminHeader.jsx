@@ -17,6 +17,9 @@ function AdminHeader() {
 
   const idToken = localStorage.getItem("idToken");
 
+
+  //move this function to src/helpers.js and import it from there
+
   function checkExpire(expireTime) {
     const nowDate = Math.floor(Date.now() / 1000);
 
@@ -32,6 +35,8 @@ function AdminHeader() {
 
     checkExpire(decodedToken.exp);
   }
+
+    //move this function to src/helpers.js and import it from there
 
   const isTokenExpired = () => {
     if (!idToken) {
@@ -50,6 +55,10 @@ function AdminHeader() {
     theme.setTheme(newTheme);
   };
 
+
+
+  // You could use USEQUERY from react query here. Better to be consistent in data fetching and state management
+  
   useEffect(() => {
     getPopularMovies()
       .then((data) => {
@@ -63,6 +72,8 @@ function AdminHeader() {
     const storedFavorites = JSON.parse(localStorage.getItem("favorites")) || [];
     setFavoriteMovieIds(storedFavorites);
   }, []);
+
+
 
   useEffect(() => {
     const favorites = movies.filter((movie) =>
