@@ -10,10 +10,13 @@ function AdminReservationPage() {
   const [reservations, setReservations] = useState(null);
   const [isError, setIsError] = useState(false);
   const idToken = localStorage.getItem("idToken");
+ 
+ //this logic is better to be in a separate file src/helpers.js 
   const decodedToken = jwtDecode(idToken);
   const theme = useContext(ThemeContext);
   const navigate = useNavigate();
 
+  // again, you could use react query here, much easier
   useEffect(() => {
     if (decodedToken.user_id !== allowedUserId) {
       navigate("/unauthorized");
@@ -31,6 +34,8 @@ function AdminReservationPage() {
       });
   }, [decodedToken.user_id, navigate]);
 
+
+  //you can replace the logic it with useMutation
   const handleDelete = (id) => {
     deleteReservation(id)
       .then(() => {
@@ -48,6 +53,9 @@ function AdminReservationPage() {
       </Container>
     );
   }
+
+
+  //this condition here is not entirely correct: The reservations may be undefined, or null in the end, which would result in infinite loading.
 
   if (reservations === null) {
     return (
