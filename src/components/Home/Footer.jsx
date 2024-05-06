@@ -40,7 +40,8 @@ function Footer() {
           <span>Connect with us on social networks:</span>
         </div>
 
-        <div>
+        {/*You can have the socials in an array: const socials = [{iconName:"facebook", link: "https://www.facebook.com/rei.hajdari.5" }] and then render those dynamically. This way you can add, change or delete only the array to update the content*/}
+        <div> 
           <a
             href="https://www.facebook.com/rei.hajdari.5"
             target="blank"
@@ -91,6 +92,7 @@ function Footer() {
 
             <MDBCol md="2" lg="2" xl="2" className="mx-auto mb-4">
               <h6 className="text-uppercase fw-bold mb-4">Products</h6>
+              {/*Same as ABOVE*/}
               <p>
                 <a
                   href="https://angular.io/"
@@ -204,6 +206,8 @@ function Footer() {
             : "rgba(0, 0, 0, 0.05)",
         }}
       >
+
+        {/*What will you do in 2025? Change it again. Make the year dynamic :) */}
         © 2024 Copyright:
         <a className="text-reset fw-bold" href="#!" style={linkStyle}>
           Rei Hajdari - All Rights Reserved
