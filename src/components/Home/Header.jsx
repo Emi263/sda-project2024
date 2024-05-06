@@ -21,6 +21,7 @@ function Header() {
 
   const idToken = localStorage.getItem("idToken");
 
+  //you can move this to a separate function (reuse it)
   function checkExpire(expireTime) {
     const nowDate = Math.floor(Date.now() / 1000);
 
@@ -42,6 +43,8 @@ function Header() {
       return true;
     }
   };
+
+  // Move this to src/helper.js
 
   const isAdmin = () => {
     const idToken = localStorage.getItem("idToken");
@@ -172,6 +175,8 @@ function Header() {
                   </Nav.Link>
                 </>
               )}
+
+              {/* Easier: isAdmin() && <Nav.Link.../>*/}
               {isAdmin() ? (
                 <>
                   <Nav.Link
