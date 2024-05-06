@@ -1,3 +1,6 @@
+//The same with Header, you can reuse it for both admin and simple user
+
+
 import { useState, useEffect, useContext } from "react";
 import { Container, Navbar, Nav } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
